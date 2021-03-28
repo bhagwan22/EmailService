@@ -1,0 +1,28 @@
+### The email service only accepts the following types of attachment:
+  1. Attachments with a Multipurpose Internet Mail Extension (MIME) type of text
+  2. Attachments with a MIME type of application/octet-stream and a file name that ends with either a .vcf or .vcs extension. These are saved as text/x-vcard and text/calendar MIME types, respectively.
+  3. binary attachments: such as image, audio, application, and video files. Binary attachments have a limit of 5 MB per attachment.
+  
+  
+### NOTE :
+  1. If the server fails a protocol or does not support any of the protocols, the email service performs the action specified in the Unauthenticated Sender Actio
+  2. Email services reject email messages and notify the sender if the email (combined body text, body HTML, and attachments) exceeds approximately 25 MB
+  3. Email services cannot accept inline attachments, such as graphics inserted in email messages.
+  4. We can convert text email to binarry or vice versa
+  5. email service only to accept messages from certain senders by listing their email addresses and domains in the Accept Email From text box. Separate multiple entries with commas. 
+  6. Daily limit: Salesforce calculates the limit by multiplying the number of user licenses by 1,000; maximum 1,000,000. For example, if you have 10 licenses, your org can process up to 10,000 email messages a day.
+  7. To send error email messages to a specified address instead of the sender's email address, select Enable Error Routing and specify the destination email address in Route Error Emails to This Email Address.
+  
+  
+Example: call should implement Messaging.InboundEmailHandler
+        
+        global class myHandler implements Messaging.InboundEmailHandler {
+            global Messaging.InboundEmailResult handleInboundEmail(Messaging.InboundEmail email, Messaging.InboundEnvelope envelope) {
+                Messaging.InboundEmailResult result = new Messaging.InboundEmailresult();
+                return result;
+            }
+        }
+        
+
+Refereal Link: https://help.salesforce.com/articleView?id=sf.code_email_services_editing.htm&type=5
+  
